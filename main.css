@@ -1,0 +1,160 @@
+body {
+	background-image:url("gheddafi.jpg");
+	/*background-repeat: no-repeat;*/
+}
+
+p {
+	background-color:#e4f1a1;
+	font-family:serif;
+	font-variant:small-caps;
+	font-style:italic;
+	font-weight:bold;
+	font-size:22px;
+}
+
+h1{
+	font-style:italic;
+	font-weight:bold;
+	background: hsla(60, 30%, 70%, .45);
+}
+
+nav a{
+	background-color:#b29117;
+	padding-right:50px;
+}
+
+nav a:link{
+	color:red;
+}
+
+nav a:visited{
+	color:blue;
+}
+
+nav a:hover {
+	font-weight:bold;
+	font-variant:small-caps;
+	color:orange;
+}
+
+.sfondoCool{
+	background-color:rgba(0, 255, 0, .25);
+}
+
+.sfondoCool.level1{
+	background-color:rgba(255, 255, 0, .25);
+}
+
+.sfondoCool.level2{
+	background-color:rgba(255, 0, 0, .25);
+}
+
+footer{
+	background-color:rgba(0, 255, 0, .25);
+	font-size:5rem;
+	margin-top:90px;
+	margin-right:40px;
+	margin-left:170px;
+	margin-bottom:0px;
+	padding-top:70px;
+	padding-right:10px;
+	padding-bottom:50px;
+	padding-left:30px;
+}
+
+footer a:link{
+	color:purple;
+}
+
+footer a:hover{
+	font-weight:normal;
+	font-style:italic;
+	color:red;
+}
+
+a:link{
+	color:green;
+}
+
+a:hover{
+	color:red;
+}
+
+article{
+	height:50%;
+	width:40%;
+	background-color:#00fa55;
+	font-family:Arial;
+	font-variant:small-caps;
+	color:blue;
+	margin-top:80px;
+	margin-bottom:80px;
+	padding: 10px 10px 10px 30px;
+	display:inline-block;
+	border: 5px double #9f9afa;
+	box-sizing:border-box;
+	float:left;
+}
+
+#mioDivo {
+	background-color: #ff0000;
+	font-weight: bold;
+	font-size:3rem;
+	padding: 10px 10px 30px 110px;
+}
+
+.miaClasse{
+	font-size:3rem;
+	color:blue;
+	border: 5px double #1ff2fa;
+	border-radius:10px 80px;
+}
+
+h1{
+	color:#4ff9a2;
+}
+
+aside{
+	width:30%;
+	padding: 10px 10px 30px 50px;
+	font-style:"Times New Roman";
+	color:#00ff22;
+	background-color:#ff00f3;
+	border-style:dashed;
+	border-color:#55f1fb;
+	margin-bottom:80px;
+	float:right;
+}
+
+.testoGenerico{
+	background-color:gray;
+	font-family:sans-serif;
+	font-size:4rem;
+	color:orange;
+	margin: 20px 10px 30px 40px;
+}
+
+.testoGenerico#header{
+	font-size:5rem;
+	color:green;
+	background-color:red;
+}
+
+.hotdog{
+	font-family:serif;
+	font-size:4rem;
+	color:#ff0000;
+	margin: 20px 10px 30px 40px;
+	padding: 0px 0px 0px 50px;
+}
+
+.hotdog.mustard{
+	font-variant:small-caps;
+	color:#0000ff;
+}
+
+.hotdog.ketchup{
+	font-style:italic;
+	color:#ffff00;
+	font-size:5rem;
+}
