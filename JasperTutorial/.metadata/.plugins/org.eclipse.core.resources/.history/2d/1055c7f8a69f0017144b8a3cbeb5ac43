@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.4.0.final using JasperReports Library version 6.4.1  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Magazzino_pratica" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="d63523a6-4cd1-43c8-b577-da815c68b46f">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="legance.xml"/>
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<parameter name="month" class="java.lang.Integer"/>
+	<queryString>
+		<![CDATA[SELECT 
+ProfessionistaGiorniLavorativi.Giorno || ProfessionistaGiorniLavorativi.Sigla as recordID, ProfessionistaGiorniLavorativi.Sigla , ProfessionistaGiorniLavorativi.Professionista, Main.data_entrata, ProfessionistaGiorniLavorativi.GiorniLavorativi, ProfessionistaGiorniLavorativi.Giorno,  ProfessionistaGiorniLavorativi.Sede
+FROM (
+	(SELECT ProfessionistaMese.Sede, ProfessionistaMese.Sigla, ProfessionistaMese.Professionista, m.workday_date AS GiorniLavorativi, m.Mese,  date_part('day', m.workday_date) AS Giorno
+	FROM (SELECT 
+		  ls.location AS Sede, ts.resp_code AS Sigla, ls.resource_name AS Professionista, ls.livello_tariffa AS Fascia, ts.log_date AS Giorno, Sum(ts.logged_hours) AS Ore, ls.resource_type AS Tipo
+		FROM fonte_timesheet ts
+		  LEFT JOIN lista_risorse ls ON ts.resp_code = ls.resource_code
+		  WHERE (ls.resource_type <> 'dipendente')
+		GROUP BY ls.location, ts.resp_code, ls.resource_name, ls.livello_tariffa, ts.log_date, ls.resource_type
+		) ProfessionistaMese, 
+		(SELECT gl.workday_date, date_part('month',workday_date) AS Mese
+		FROM giorni_lavorativi gl) m) ProfessionistaGiorniLavorativi
+  LEFT JOIN (
+	  SELECT 
+	  ls.location AS Sede, ts.resp_code AS Sigla, ls.resource_name AS Professionista, ls.livello_tariffa AS Fascia, ts.log_date AS Giorno, Sum(ts.logged_hours) AS Ore, ls.resource_type AS Tipo
+	FROM fonte_timesheet ts
+	  LEFT JOIN lista_risorse ls ON ts.resp_code = ls.resource_code
+	  WHERE (ls.resource_type <> 'dipendente')
+	GROUP BY ls.location, ts.resp_code, ls.resource_name, ls.livello_tariffa, ts.log_date, ls.resource_type
+  ) Query1 ON (ProfessionistaGiorniLavorativi.Sigla = Query1.Sigla AND ProfessionistaGiorniLavorativi.GiorniLavorativi = Query1.Giorno)) 
+  LEFT JOIN anagrafica_risorse Main ON ProfessionistaGiorniLavorativi.Sigla = Main.resource_code
+WHERE ProfessionistaGiorniLavorativi.Mese=$P{month} AND 
+      Query1.Giorno Is Null AND 
+      Main.data_uscita Is Null
+GROUP BY ProfessionistaGiorniLavorativi.Sede, ProfessionistaGiorniLavorativi.Sigla, ProfessionistaGiorniLavorativi.Professionista, Main.data_entrata, ProfessionistaGiorniLavorativi.GiorniLavorativi, ProfessionistaGiorniLavorativi.Giorno
+order by ProfessionistaGiorniLavorativi.Sigla]]>
+	</queryString>
+	<field name="recordid" class="java.lang.String"/>
+	<field name="sigla" class="java.lang.String"/>
+	<field name="professionista" class="java.lang.String"/>
+	<field name="data_entrata" class="java.sql.Date"/>
+	<field name="giornilavorativi" class="java.sql.Date"/>
+	<field name="giorno" class="java.lang.Double"/>
+	<field name="sede" class="java.lang.String"/>
+	<group name="utente">
+		<groupExpression><![CDATA[$F{sigla}]]></groupExpression>
+		<groupHeader>
+			<band height="69">
+				<textField evaluationTime="Column">
+					<reportElement x="0" y="36" width="190" height="12" printWhenGroupChanges="utente" uuid="5bfc28cf-3ae1-403a-bf1c-901753bac002"/>
+					<box leftPadding="5">
+						<topPen lineWidth="1.0"/>
+						<leftPen lineWidth="1.0"/>
+						<rightPen lineWidth="1.0"/>
+					</box>
+					<textFieldExpression><![CDATA[$F{sigla}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="0" y="47" width="190" height="12" printWhenGroupChanges="utente" uuid="f5b66eec-3534-4e77-a687-cc4a550b7741"/>
+					<box leftPadding="5">
+						<leftPen lineWidth="1.0"/>
+						<bottomPen lineWidth="1.0"/>
+						<rightPen lineWidth="1.0"/>
+					</box>
+					<textFieldExpression><![CDATA[$F{professionista}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="350" y="48" width="70" height="21" printWhenGroupChanges="utente" uuid="89cd94af-b5ab-41f8-a723-7db3b104c32c"/>
+					<box topPadding="4" leftPadding="5" bottomPadding="4" rightPadding="0">
+						<topPen lineWidth="1.0"/>
+						<leftPen lineWidth="1.0"/>
+						<bottomPen lineWidth="1.0"/>
+					</box>
+					<text><![CDATA[Data entrata:]]></text>
+				</staticText>
+				<textField pattern="dd/MM/yyyy" isBlankWhenNull="true">
+					<reportElement x="420" y="48" width="100" height="21" printWhenGroupChanges="utente" uuid="3b239a10-e007-4df1-92de-ec062e3ff719"/>
+					<box padding="3">
+						<topPen lineWidth="1.0"/>
+						<bottomPen lineWidth="1.0"/>
+						<rightPen lineWidth="1.0"/>
+					</box>
+					<textFieldExpression><![CDATA[$F{data_entrata}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="0" y="0" width="442" height="20" uuid="ee8a11e9-95b7-42c1-962f-dc3ebc3f88fd"/>
+					<text><![CDATA[Report giorni lavorativi non loggati]]></text>
+				</staticText>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="50">
+				<break>
+					<reportElement x="0" y="21" width="100" height="1" uuid="1e319710-1fad-41c4-be9c-8216e050ae75"/>
+				</break>
+			</band>
+		</groupFooter>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="25" splitType="Stretch">
+			<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="0" y="0" width="100" height="20" uuid="7948562f-ad27-494e-b93f-99159ebfbee5"/>
+				<textFieldExpression><![CDATA[$F{giornilavorativi}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="21" splitType="Prevent">
+			<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+			<textField>
+				<reportElement x="700" y="0" width="100" height="21" uuid="d9e8598c-8d07-4f37-9091-779f1904693a"/>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+</jasperReport>

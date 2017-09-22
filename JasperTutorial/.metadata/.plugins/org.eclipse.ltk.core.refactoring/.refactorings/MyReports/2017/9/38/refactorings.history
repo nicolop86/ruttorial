@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring accessors="true" comment="Delete 2 elements from project &apos;MyReports&apos;&#x0D;&#x0A;- Original project: &apos;MyReports&apos;&#x0D;&#x0A;- Original elements:&#x0D;&#x0A;     verifica_TS.jasper&#x0D;&#x0A;     verifica_TS.jrxml" description="Delete elements" element1="verifica_TS.jasper" element2="verifica_TS.jrxml" elements="0" flags="589830" id="org.eclipse.jdt.ui.delete" resources="2" stamp="1506092514806" subPackages="false" version="1.0"/>
+</session>
