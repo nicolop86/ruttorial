@@ -113,3 +113,6 @@ Binding(F2,
 		,,true),null),
 	org.eclipse.ui.defaultAcceleratorConfiguration,
 	org.eclipse.xtext.ui.embeddedTextEditorScope,,,system)
+
+!ENTRY org.eclipse.core.resources 2 10035 2017-09-22 15:37:23.104
+!MESSAGE The workspace will exit with unsaved changes in this session.
