@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with Jaspersoft Studio version 6.4.0.final using JasperReports Library version 6.4.1  -->
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="demo_calendar" columnCount="7" printOrder="Horizontal" pageWidth="792" pageHeight="612" orientation="Landscape" whenNoDataType="AllSectionsNoDetail" columnWidth="110" leftMargin="11" rightMargin="11" topMargin="6" bottomMargin="6" uuid="32abf871-39b8-4cc7-b03c-d950a55e2bfb">
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ProvaSettimana" columnCount="7" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="114" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="53f586c9-bb7a-4fe5-9d84-be906b18071d">
 	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
-	<property name="com.jaspersoft.studio.unit." value="pixel"/>
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Prova Calendar"/>
 	<style name="Style1" forecolor="#050505">
 		<conditionalStyle>
@@ -38,18 +37,15 @@
 	<variable name="Date" class="java.lang.Integer">
 		<variableExpression><![CDATA[$F{id}.intValue()-$P{DOW}.intValue()+1]]></variableExpression>
 	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
 	<title>
-		<band height="60">
-			<textField pattern="yyyy MMMM">
-				<reportElement x="0" y="0" width="770" height="30" uuid="21293131-3839-43aa-b449-b19867eee2da"/>
-				<textElement textAlignment="Center">
-					<font size="16" isBold="true"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$P{Date}]]></textFieldExpression>
-			</textField>
+		<band height="56" splitType="Stretch">
 			<staticText>
-				<reportElement mode="Opaque" x="0" y="30" width="110" height="30" forecolor="#FFFCFC" backcolor="#FC0703" uuid="11cb3d1f-777b-43cb-a053-11f27f46d99b">
+				<reportElement mode="Opaque" x="0" y="16" width="114" height="30" forecolor="#FFFCFC" backcolor="#FC0703" uuid="e3ce2558-631b-4d6a-9b53-040549c0eb65">
 					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
 				</reportElement>
 				<box>
 					<topPen lineWidth="0.0" lineStyle="Solid"/>
@@ -63,8 +59,9 @@
 				<text><![CDATA[Sunday]]></text>
 			</staticText>
 			<staticText>
-				<reportElement mode="Opaque" x="110" y="30" width="110" height="30" forecolor="#FFFCFC" backcolor="#403D3D" uuid="35ef4490-9b76-4251-bc43-7f59a9ab19c2">
+				<reportElement mode="Opaque" x="115" y="16" width="114" height="30" forecolor="#FFFCFC" backcolor="#403D3D" uuid="6599a272-78ba-4d47-8191-5e75759f812e">
 					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
 				</reportElement>
 				<box>
 					<topPen lineWidth="1.0" lineStyle="Solid"/>
@@ -78,8 +75,9 @@
 				<text><![CDATA[Monday]]></text>
 			</staticText>
 			<staticText>
-				<reportElement mode="Opaque" x="220" y="30" width="110" height="30" forecolor="#FFFCFC" backcolor="#403D3D" uuid="33eb161b-40bb-4a2d-9b85-6ba67461b4f6">
+				<reportElement mode="Opaque" x="230" y="16" width="114" height="30" forecolor="#FFFCFC" backcolor="#403D3D" uuid="2a2d619e-c475-4b87-95bf-9e486f70ba14">
 					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
 				</reportElement>
 				<box>
 					<topPen lineWidth="1.0" lineStyle="Solid"/>
@@ -93,8 +91,9 @@
 				<text><![CDATA[Tuesday]]></text>
 			</staticText>
 			<staticText>
-				<reportElement mode="Opaque" x="330" y="30" width="110" height="30" forecolor="#FFFCFC" backcolor="#403D3D" uuid="5e4c7405-352c-4058-b0ef-bd52d766e00b">
+				<reportElement mode="Opaque" x="345" y="16" width="114" height="30" forecolor="#FFFCFC" backcolor="#403D3D" uuid="bb727f14-118a-4d7a-a7d7-3588d2068803">
 					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
 				</reportElement>
 				<box>
 					<topPen lineWidth="1.0" lineStyle="Solid"/>
@@ -108,8 +107,9 @@
 				<text><![CDATA[Wednesday]]></text>
 			</staticText>
 			<staticText>
-				<reportElement mode="Opaque" x="440" y="30" width="110" height="30" forecolor="#FFFCFC" backcolor="#403D3D" uuid="81be3ac1-c1c1-4573-86a7-67c891288f1c">
+				<reportElement mode="Opaque" x="461" y="16" width="114" height="30" forecolor="#FFFCFC" backcolor="#403D3D" uuid="4274c3c2-668e-434e-8771-364ab76f6044">
 					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
 				</reportElement>
 				<box>
 					<topPen lineWidth="1.0" lineStyle="Solid"/>
@@ -123,8 +123,9 @@
 				<text><![CDATA[Thursday]]></text>
 			</staticText>
 			<staticText>
-				<reportElement mode="Opaque" x="550" y="30" width="110" height="30" forecolor="#FFFCFC" backcolor="#403D3D" uuid="9442d83e-3726-4db9-8746-04b2fea1449b">
+				<reportElement mode="Opaque" x="576" y="16" width="114" height="30" forecolor="#FFFCFC" backcolor="#403D3D" uuid="eba5d12b-4540-42cd-a822-f4510477da8c">
 					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
 				</reportElement>
 				<box>
 					<topPen lineWidth="1.0" lineStyle="Solid"/>
@@ -138,8 +139,9 @@
 				<text><![CDATA[Friday]]></text>
 			</staticText>
 			<staticText>
-				<reportElement mode="Opaque" x="660" y="30" width="110" height="30" forecolor="#FFFCFC" backcolor="#403D3D" uuid="edc883b5-0e35-4e17-8a45-56efc9dacf6a">
+				<reportElement mode="Opaque" x="692" y="16" width="114" height="30" forecolor="#FFFCFC" backcolor="#403D3D" uuid="5cec6bb2-32e8-4d17-9075-871215e9c500">
 					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
 				</reportElement>
 				<box>
 					<topPen lineWidth="1.0" lineStyle="Solid"/>
@@ -155,21 +157,19 @@
 		</band>
 	</title>
 	<detail>
-		<band height="90" splitType="Stretch">
+		<band height="82" splitType="Stretch">
 			<frame>
-				<reportElement x="0" y="0" width="110" height="90" uuid="75440275-c439-4c3e-bb77-f9f4d8f48415">
-					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+				<reportElement x="3" y="1" width="110" height="79" uuid="9a76bbc2-6a77-4d2d-910b-78d973f2894f">
 					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
-					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
 				</reportElement>
 				<box>
-					<topPen lineWidth="1.0" lineStyle="Solid"/>
-					<leftPen lineWidth="1.0" lineStyle="Solid"/>
-					<bottomPen lineWidth="1.0" lineStyle="Solid"/>
-					<rightPen lineWidth="1.0" lineStyle="Solid"/>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
 				</box>
 				<textField>
-					<reportElement style="Style1" x="60" y="1" width="50" height="30" isRemoveLineWhenBlank="true" uuid="733ff549-0109-4f55-b9de-476f0ad9fbeb">
+					<reportElement style="Style1" x="0" y="1" width="110" height="30" isRemoveLineWhenBlank="true" uuid="733ff549-0109-4f55-b9de-476f0ad9fbeb">
 						<printWhenExpression><![CDATA[$V{Date}.intValue()>0&&$V{Date}.intValue()<=$P{Days}.intValue()]]></printWhenExpression>
 					</reportElement>
 					<textElement textAlignment="Right">
@@ -180,4 +180,12 @@
 			</frame>
 		</band>
 	</detail>
+	<pageFooter>
+		<band height="70" splitType="Stretch">
+			<textField>
+				<reportElement x="760" y="40" width="58" height="30" uuid="47053c7a-a2fa-42c3-b219-9f7def60bc17"/>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
 </jasperReport>
